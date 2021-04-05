@@ -1,0 +1,53 @@
+language: android
+dist: trusty
+sudo: required
+
+android:
+  components:
+    - build-tools-30.0.3
+    - android-30
+    - android-22
+    - add-on
+    - extra
+    - platform-tools
+    - tools
+    - extra-google-googleplayservices
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-30
+    - sys-img-armeabi-v7a-android-22
+
+before_install:
+  - yes | sdkmanager "platforms;android-30"
+
+env:
+  global:
+    - MALLOC_ARENA_MAX=2
+
+before_script:
+  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a -s "768x1280"
+  - emulator -avd test -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+
+script:
+  - ./gradlew :app:build
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+
+notifications:
+  email:
+    recipients:
+      - norbert.gal97@gmail.com
+    on_success: never
+    on_failure: always
+
+
