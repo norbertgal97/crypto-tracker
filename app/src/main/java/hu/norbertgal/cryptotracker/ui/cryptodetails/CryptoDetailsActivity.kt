@@ -16,22 +16,22 @@ class CryptoDetailsActivity : AppCompatActivity(), CryptoDetailsScreen {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
     override fun onStart() {
         super.onStart()
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
     override fun onStop() {
         super.onStop()
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
     override fun onResume() {
         super.onResume()
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
 }

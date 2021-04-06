@@ -22,16 +22,16 @@ class CryptoListActivity : AppCompatActivity(), CryptoListScreen {
 
     override fun onStart() {
         super.onStart()
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
     override fun onStop() {
         super.onStop()
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
     override fun onResume() {
         super.onResume()
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 }
