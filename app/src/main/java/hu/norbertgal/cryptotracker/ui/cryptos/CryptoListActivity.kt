@@ -2,14 +2,21 @@ package hu.norbertgal.cryptotracker.ui.cryptos
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import hu.norbertgal.cryptotracker.CryptoTrackerApplication
 import hu.norbertgal.cryptotracker.R
 import hu.norbertgal.cryptotracker.model.CryptoListResult
 import hu.norbertgal.cryptotracker.model.CryptoPreview
+import javax.inject.Inject
 
 class CryptoListActivity : AppCompatActivity(), CryptoListScreen {
+
+    @Inject lateinit var cryptoListPresenter: CryptoListPresenter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cryptolist)
+
+        (application as CryptoTrackerApplication).injector.inject(this)
     }
 
     override fun showCryptos(cryptoList: List<CryptoPreview>) {
@@ -22,12 +29,12 @@ class CryptoListActivity : AppCompatActivity(), CryptoListScreen {
 
     override fun onStart() {
         super.onStart()
-        //TODO("Not yet implemented")
+        cryptoListPresenter.attachScreen(this)
     }
 
     override fun onStop() {
+        cryptoListPresenter.detachScreen()
         super.onStop()
-        //TODO("Not yet implemented")
     }
 
     override fun onResume() {
