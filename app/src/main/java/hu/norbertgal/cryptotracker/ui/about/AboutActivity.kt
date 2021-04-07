@@ -2,9 +2,14 @@ package hu.norbertgal.cryptotracker.ui.about
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import hu.norbertgal.cryptotracker.CryptoTrackerApplication
 import hu.norbertgal.cryptotracker.model.About
+import javax.inject.Inject
 
 class AboutActivity : AppCompatActivity(), AboutScreen {
+
+    @Inject lateinit var aboutPresenter: AboutPresenter
+
     override fun showAbout(about: About) {
         TODO("Not yet implemented")
     }
@@ -15,17 +20,18 @@ class AboutActivity : AppCompatActivity(), AboutScreen {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //TODO("Not yet implemented")
+
+        (application as CryptoTrackerApplication).injector.inject(this)
     }
 
     override fun onStart() {
         super.onStart()
-        //TODO("Not yet implemented")
+        aboutPresenter.attachScreen(this)
     }
 
     override fun onStop() {
+        aboutPresenter.detachScreen()
         super.onStop()
-        //TODO("Not yet implemented")
     }
 
     override fun onResume() {
