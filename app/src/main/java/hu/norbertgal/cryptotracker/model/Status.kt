@@ -13,10 +13,17 @@
 package hu.norbertgal.cryptotracker.model
 
 import com.google.gson.annotations.SerializedName
+import java.time.LocalDate
 
-data class CryptoDataResult(
-    @SerializedName("data")
-    val data: HashMap<String, Crypto>,
-    @SerializedName("status")
-    val status: Status
+data class Status(
+    @SerializedName("timestamp")
+    val timestamp: String,
+    @SerializedName("error_code")
+    val errorCode: Int,
+    @SerializedName("error_message")
+    val errorMessage: String,
+    @SerializedName("elapsed")
+    val elapsed: Long,
+    @SerializedName("creditCount")
+    val creditCount: Int,
 )

@@ -1,8 +1,8 @@
 package hu.norbertgal.cryptotracker.ui.cryptodetails
 
-import hu.norbertgal.cryptotracker.model.CryptoDataResult
+import hu.norbertgal.cryptotracker.model.Crypto
 
 interface CryptoDetailsScreen {
-    fun showCryptoDetails(cryptoData: CryptoDataResult)
+    fun showCryptoDetails(crypto: Crypto?)
     fun showError(message: String)
 }

@@ -7,6 +7,7 @@ import hu.norbertgal.cryptotracker.CryptoTrackerApplication
 import hu.norbertgal.cryptotracker.R
 import hu.norbertgal.cryptotracker.model.CryptoListResult
 import hu.norbertgal.cryptotracker.model.CryptoPreview
+import hu.norbertgal.cryptotracker.ui.cryptodetails.CryptoDetailsPresenter
 import hu.norbertgal.cryptotracker.ui.cryptos.adapter.CryptoAdapter
 import javax.inject.Inject
 
@@ -22,17 +23,18 @@ class CryptoListActivity : AppCompatActivity(), CryptoListScreen {
         (application as CryptoTrackerApplication).injector.inject(this)
     }
 
-    override fun showCryptos(cryptoList: List<CryptoPreview>) {
-        TODO("Not yet implemented")
+    override fun showCryptos(cryptoList: List<CryptoPreview>?) {
+        //TODO("Not yet implemented")
     }
 
     override fun showError(message: String) {
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
     override fun onStart() {
         super.onStart()
         cryptoListPresenter.attachScreen(this)
+        cryptoListPresenter.refreshCryptos(500)
     }
 
     override fun onStop() {

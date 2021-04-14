@@ -14,9 +14,15 @@ package hu.norbertgal.cryptotracker.model
 
 import com.google.gson.annotations.SerializedName
 
-data class CryptoDataResult(
-    @SerializedName("data")
-    val data: HashMap<String, Crypto>,
-    @SerializedName("status")
-    val status: Status
+data class Quote(
+    @SerializedName("price")
+    val price: Double,
+    @SerializedName("percent_change_1h")
+    val percentChange1h: Double,
+    @SerializedName("percent_change_24h")
+    val percentChange24h: Double,
+    @SerializedName("percent_change_7d")
+    val percentChange7d: Double,
+    @SerializedName("percent_change_30d")
+    val percentChange30d: Double
 )
