@@ -11,11 +11,7 @@ class AboutActivity : AppCompatActivity(), AboutScreen {
     @Inject lateinit var aboutPresenter: AboutPresenter
 
     override fun showAbout(about: About) {
-        TODO("Not yet implemented")
-    }
-
-    override fun showError(message: String) {
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +32,7 @@ class AboutActivity : AppCompatActivity(), AboutScreen {
 
     override fun onResume() {
         super.onResume()
-        //TODO("Not yet implemented")
+        aboutPresenter.getAbout()
     }
 
 }

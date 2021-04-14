@@ -4,5 +4,4 @@ import hu.norbertgal.cryptotracker.model.About
 
 interface AboutScreen {
     fun showAbout(about: About)
-    fun showError(message: String)
 }
