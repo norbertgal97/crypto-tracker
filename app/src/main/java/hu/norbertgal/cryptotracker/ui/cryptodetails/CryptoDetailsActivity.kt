@@ -28,7 +28,7 @@ class CryptoDetailsActivity : AppCompatActivity(), CryptoDetailsScreen {
     override fun onStart() {
         super.onStart()
         cryptoDetailsPresenter.attachScreen(this)
-        cryptoDetailsPresenter.refreshCryptoDetails(1)
+        cryptoDetailsPresenter.refreshCryptoDetails(1) //for testing purposes only
     }
 
     override fun onStop() {
