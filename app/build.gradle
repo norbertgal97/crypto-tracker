@@ -7,6 +7,7 @@ plugins {
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
+    flavorDimensions "server"
 
     defaultConfig {
         applicationId "hu.norbertgal.cryptotracker"
@@ -30,6 +31,18 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    productFlavors {
+        demo {
+            applicationId "hu.norbertgal.cryptotracker.demo"
+            versionName "1.0-demo"
+        }
+
+        full {
+            applicationId "hu.norbertgal.cryptotracker.full"
+            versionName "1.0-full"
+        }
     }
 }
 
