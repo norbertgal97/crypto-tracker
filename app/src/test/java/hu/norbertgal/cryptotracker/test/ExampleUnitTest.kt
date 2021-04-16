@@ -1,4 +1,4 @@
-package hu.norbertgal.cryptotracker
+package hu.norbertgal.cryptotracker.test
 
 import org.junit.Test
 
