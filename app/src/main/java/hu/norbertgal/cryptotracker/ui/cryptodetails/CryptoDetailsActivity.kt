@@ -1,10 +1,10 @@
 package hu.norbertgal.cryptotracker.ui.cryptodetails
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import hu.norbertgal.cryptotracker.CryptoTrackerApplication
 import hu.norbertgal.cryptotracker.model.Crypto
-import hu.norbertgal.cryptotracker.model.CryptoDataResult
 import javax.inject.Inject
 
 class CryptoDetailsActivity : AppCompatActivity(), CryptoDetailsScreen {
@@ -16,7 +16,7 @@ class CryptoDetailsActivity : AppCompatActivity(), CryptoDetailsScreen {
     }
 
     override fun showError(message: String) {
-        //TODO("Not yet implemented")
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,7 @@ class CryptoDetailsActivity : AppCompatActivity(), CryptoDetailsScreen {
     override fun onStart() {
         super.onStart()
         cryptoDetailsPresenter.attachScreen(this)
-        cryptoDetailsPresenter.refreshCryptoDetails(1)
+        cryptoDetailsPresenter.refreshCryptoDetails(1) //for testing purposes only
     }
 
     override fun onStop() {

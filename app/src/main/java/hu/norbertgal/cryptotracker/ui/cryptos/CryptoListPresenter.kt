@@ -24,7 +24,7 @@ class CryptoListPresenter @Inject constructor(private val executor: Executor, pr
 
     fun refreshCryptos(limit: Long) {
         executor.execute {
-            cryptoInteractor.getCryptos(limit)
+            cryptoInteractor.getCryptoPreviews(100)
         }
     }
 

@@ -12,17 +12,27 @@
 
 package hu.norbertgal.cryptotracker.model
 
+import androidx.room.ColumnInfo
 import com.google.gson.annotations.SerializedName
 
 data class Quote(
     @SerializedName("price")
+    @ColumnInfo(name="price")
     val price: Double,
+
     @SerializedName("percent_change_1h")
+    @ColumnInfo(name="percentchange1h")
     val percentChange1h: Double,
+
     @SerializedName("percent_change_24h")
+    @ColumnInfo(name="percentchange24h")
     val percentChange24h: Double,
+
     @SerializedName("percent_change_7d")
+    @ColumnInfo(name="percentchange7d")
     val percentChange7d: Double,
+
     @SerializedName("percent_change_30d")
+    @ColumnInfo(name="percentchange30d")
     val percentChange30d: Double
 )

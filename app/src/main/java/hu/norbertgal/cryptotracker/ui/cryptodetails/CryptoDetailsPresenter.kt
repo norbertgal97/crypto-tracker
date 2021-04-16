@@ -2,6 +2,7 @@ package hu.norbertgal.cryptotracker.ui.cryptodetails
 
 import hu.norbertgal.cryptotracker.interactor.crypto.CryptoInteractor
 import hu.norbertgal.cryptotracker.interactor.crypto.event.GetCryptoDetailsEvent
+import hu.norbertgal.cryptotracker.model.Crypto
 import hu.norbertgal.cryptotracker.ui.Presenter
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -24,6 +25,18 @@ class CryptoDetailsPresenter @Inject constructor(private val executor: Executor,
     fun refreshCryptoDetails(id: Long) {
         executor.execute {
             cryptoInteractor.getCryptoDetails(id)
+        }
+    }
+
+    fun deleteCryptoDetails(crypto : Crypto) {
+        executor.execute {
+            cryptoInteractor.deleteCryptoDetails(crypto)
+        }
+    }
+
+    fun updateCryptoDetails(crypto : Crypto) {
+        executor.execute {
+            cryptoInteractor.updateCryptoDetails(crypto)
         }
     }
 

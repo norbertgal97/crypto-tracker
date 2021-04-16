@@ -2,12 +2,11 @@ package hu.norbertgal.cryptotracker.ui.cryptos
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import hu.norbertgal.cryptotracker.CryptoTrackerApplication
 import hu.norbertgal.cryptotracker.R
-import hu.norbertgal.cryptotracker.model.CryptoListResult
 import hu.norbertgal.cryptotracker.model.CryptoPreview
-import hu.norbertgal.cryptotracker.ui.cryptodetails.CryptoDetailsPresenter
 import hu.norbertgal.cryptotracker.ui.cryptos.adapter.CryptoAdapter
 import javax.inject.Inject
 
@@ -25,16 +24,17 @@ class CryptoListActivity : AppCompatActivity(), CryptoListScreen {
 
     override fun showCryptos(cryptoList: List<CryptoPreview>?) {
         //TODO("Not yet implemented")
+
     }
 
     override fun showError(message: String) {
-        //TODO("Not yet implemented")
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
     override fun onStart() {
         super.onStart()
         cryptoListPresenter.attachScreen(this)
-        cryptoListPresenter.refreshCryptos(500)
+        cryptoListPresenter.refreshCryptos(100)
     }
 
     override fun onStop() {

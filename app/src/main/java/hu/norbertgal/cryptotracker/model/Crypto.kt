@@ -12,23 +12,37 @@
 
 package hu.norbertgal.cryptotracker.model
 
+import androidx.room.*
 import com.google.gson.annotations.SerializedName
 
-data class Crypto(
-        @Transient
-        val id: Long?,
+@Entity(tableName = "cryptodetails")
+data class Crypto (
         @SerializedName("id")
+        @PrimaryKey(autoGenerate = false)
+        @ColumnInfo(name="coinmarketcapid")
         val coinMarketCapId: Long?,
+
         @SerializedName("name")
+        @ColumnInfo(name="name")
         val name: String,
+
         @SerializedName("symbol")
+        @ColumnInfo(name="symbol")
         val symbol: String,
+
         @SerializedName("max_supply")
+        @ColumnInfo(name="maxsupply")
         val maxSupply: Long,
+
         @SerializedName("total_supply")
+        @ColumnInfo(name="totalsupply")
         val totalSupply: Long,
+
         @SerializedName("cmc_rank")
+        @ColumnInfo(name="cmcrank")
         val cmcRank: Int,
+
         @SerializedName("quote")
-        val quote: HashMap<String, Quote>
+        @ColumnInfo(name="quote")
+        val quote: Map<String, Quote>
 )
