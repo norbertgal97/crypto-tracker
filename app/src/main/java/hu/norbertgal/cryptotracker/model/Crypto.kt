@@ -32,11 +32,11 @@ data class Crypto (
 
         @SerializedName("max_supply")
         @ColumnInfo(name="maxsupply")
-        val maxSupply: Long,
+        val maxSupply: Double,
 
         @SerializedName("total_supply")
         @ColumnInfo(name="totalsupply")
-        val totalSupply: Long,
+        val totalSupply: Double,
 
         @SerializedName("cmc_rank")
         @ColumnInfo(name="cmcrank")
