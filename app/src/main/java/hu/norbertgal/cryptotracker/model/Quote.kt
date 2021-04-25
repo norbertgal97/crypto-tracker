@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName
 data class Quote(
     @SerializedName("price")
     @ColumnInfo(name="price")
-    val price: Double,
+    var price: Double,
 
     @SerializedName("percent_change_1h")
     @ColumnInfo(name="percentchange1h")

@@ -49,9 +49,7 @@ class CryptoDetailsPresenter @Inject constructor(private val executor: Executor,
             }
         } else {
             if (screen != null) {
-                if (event.crypto != null) {
-                    screen?.showCryptoDetails(event.crypto)
-                }
+                screen?.showCryptoDetails(event.crypto)
             }
         }
     }

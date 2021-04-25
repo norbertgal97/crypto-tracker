@@ -6,7 +6,7 @@ import hu.norbertgal.cryptotracker.ui.Presenter
 class AboutPresenter : Presenter<AboutScreen>() {
 
     fun getAbout() {
-        val about = About("Gál Norbert", "TK4XI3", "App version: v4.0.0")
+        val about = About("Gál Norbert", "TK4XI3", "App version: v4.1.0")
         screen?.showAbout(about)
     }
 

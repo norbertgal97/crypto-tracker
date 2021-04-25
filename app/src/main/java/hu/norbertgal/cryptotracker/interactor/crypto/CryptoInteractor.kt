@@ -140,7 +140,7 @@ class CryptoInteractor @Inject constructor(
 
     private fun loadCryptoDetailsFromDatabase(event: GetCryptoDetailsEvent, id: Long) {
         Thread {
-            val cryptoPreviews =
+            val cryptoPreviews: Crypto? =
                     AppDatabase.getInstance(context).cryptoDao().getCryptoById(id)
             event.crypto = cryptoPreviews
             EventBus.getDefault().post(event)
