@@ -1,5 +1,6 @@
 package hu.norbertgal.cryptotracker.test
 
+import hu.norbertgal.cryptotracker.interactor.crypto.event.GetCryptosEvent
 import hu.norbertgal.cryptotracker.model.CryptoPreview
 import hu.norbertgal.cryptotracker.testInjector
 import hu.norbertgal.cryptotracker.ui.cryptos.CryptoListPresenter
@@ -39,6 +40,28 @@ class CryptoListTest {
         val list = argumentCaptor<MutableList<CryptoPreview>>()
         verify(cryptoListScreen).showCryptos(list.capture())
         assert(list.value.size == 2)
+    }
+
+    @Test
+    fun testCryptoListContainsBitcoin() {
+        cryptoListPresenter.refreshCryptos(2)
+
+        val list = argumentCaptor<MutableList<CryptoPreview>>()
+        verify(cryptoListScreen).showCryptos(list.capture())
+
+        val bitcoin = CryptoPreview(1, "Bitcoin", "BTC")
+        assert(list.value.contains(bitcoin))
+    }
+
+    @Test
+    fun testShowError() {
+        val event = GetCryptosEvent()
+        event.code = 400
+        event.throwable = Exception("Result code is not 200. Result code is: 400")
+
+        cryptoListPresenter.onEventMainThread(event)
+
+        verify(cryptoListScreen).showError("Result code is not 200. Result code is: 400")
     }
 
     @After
