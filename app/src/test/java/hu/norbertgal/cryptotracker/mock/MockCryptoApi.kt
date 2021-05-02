@@ -10,7 +10,18 @@ import retrofit2.Response
 
 class MockCryptoApi : CryptoApi{
     override fun latest(authorization: String, id: Long): Call<CryptoDataResult> {
-        //TODO("Not yet implemented")
+        val status = Status("2021-02-02", 0, "", 1000L, 1)
+
+        val quote = Quote(55050.56, 0.593, 2.83, -0.96, -1.69)
+        val quoteMap = HashMap<String, Quote>()
+        quoteMap["USD"] = quote
+
+        val crypto = Crypto(1, "Bitcoin", "BTC", 21000000.0, 18692706.0, 1, quoteMap)
+
+        val data = HashMap<String, Crypto>()
+        data["1"] = crypto
+
+        val cryptoDataResult = CryptoDataResult(data, status)
 
         return object : Call<CryptoDataResult> {
             override fun clone(): Call<CryptoDataResult> {
@@ -18,7 +29,7 @@ class MockCryptoApi : CryptoApi{
             }
 
             override fun execute(): Response<CryptoDataResult> {
-                return Response.success(null)
+                return Response.success(cryptoDataResult)
             }
 
             override fun isExecuted(): Boolean {
@@ -98,7 +109,44 @@ class MockCryptoApi : CryptoApi{
     }
 
     override fun delete(authorization: String, cryptoId: Long): Call<CryptoDataResult> {
-        TODO("Not yet implemented")
+        val cryptoMap = HashMap<String, Crypto>()
+        val status = Status("2021-02-02", 0, "", 1000L, 1)
+        val cryptoDataResult = CryptoDataResult(cryptoMap, status)
+
+        return object : Call<CryptoDataResult> {
+            override fun clone(): Call<CryptoDataResult> {
+                return this
+            }
+
+            override fun execute(): Response<CryptoDataResult> {
+                return Response.success(cryptoDataResult)
+            }
+
+            override fun enqueue(callback: Callback<CryptoDataResult>) {
+
+            }
+
+            override fun isExecuted(): Boolean {
+                return false
+            }
+
+            override fun cancel() {
+
+            }
+
+            override fun isCanceled(): Boolean {
+                return false
+            }
+
+            override fun request(): Request? {
+                return null
+            }
+
+            override fun timeout(): Timeout? {
+                return null
+            }
+
+        }
     }
 
     override fun add(authorization: String, body: Crypto): Call<CryptoDataResult> {
