@@ -4,7 +4,6 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-android-extensions'
     id 'com.vanniktech.android.junit.jacoco'
-    id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
 }
 
