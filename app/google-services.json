@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "923760983626",
+    "project_id": "crypto-tracker-65b8f",
+    "storage_bucket": "crypto-tracker-65b8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923760983626:android:a737ef440ea1e2322370b3",
+        "android_client_info": {
+          "package_name": "hu.norbertgal.cryptotracker.full"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923760983626-0jphbmj5ds2g8ng7hh1jda88918uqbq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjLJ-kbg8cK47OrWFrAQfHDYocKfEDnGs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "923760983626-0jphbmj5ds2g8ng7hh1jda88918uqbq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
